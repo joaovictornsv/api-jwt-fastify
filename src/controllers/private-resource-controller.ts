@@ -13,8 +13,8 @@ export class PrivateResourceController {
   ) { }
 
   public handle = async (request: FastifyRequest): Promise<PrivateResourceControllerResponse> => {
-    const body = this.validateRequestParams(request.params)
-    const customerSafetyData = await this.privateResourceUseCase.execute(body)
+    const params = this.validateRequestParams(request.params)
+    const customerSafetyData = await this.privateResourceUseCase.execute(params)
 
     return customerSafetyData
   }
